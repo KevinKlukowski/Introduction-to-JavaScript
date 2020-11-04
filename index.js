@@ -105,8 +105,16 @@ Use the hungryDog function and feeding requirements below to do the following:
   NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */  
 
-function hungryDog(/*add your code here*/){
-    /*add your code here*/
+function hungryDog(pounds, years){
+    if (years >= 1 && pounds <= 5) {
+      return pounds * .05;
+    } else if (years >= 1 && pounds <= 10) {
+      return pounds * .04;
+    } else if (years >= 1 && pounds <= 15) {
+      return pounds * .03;
+    } else {
+      return pounds * .02;
+    }
   }
 
 
@@ -125,14 +133,30 @@ Use the game function below to do the following:
    - lose should return "you lose!"
    -tie should return "it's a tie"
   
-  RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors | Or there's a tie
+  RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors | Or there's a tie scissors = 1 rock = 2 paper = 3
   
   HINT: While you can complete this with only conditionals based on strings, it may help to equate choice to a number when using Math.random()
 */
 
+let computer = Math.random();
+
 function game(user, computer){
-    /*add your code here*/
+    if (computer < .33) {
+      computer = 'rock'
+    } else if (computer < .66) {
+      computer = 'paper'
+    } else if (computer <= 1) {
+      computer = 'scissors'
+    }
+    if (user === 'rock' && computer === 'scissors' || user === 'paper' && computer === 'rock' || user === 'scissors' && computer === 'paper') {
+      return 'you win!'
+    } else if (computer === 'rock' && user === 'scissors' || computer === 'paper' & user === 'rock' || computer === 'scissors' && user === 'paper') {
+      return 'you lose!'
+    } else {
+      return "it's a tie"
+    }
 }
+console.log(game('rock', computer))
   
   
 
@@ -147,10 +171,10 @@ Using the miles function below do the following:
   3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-    /*add your code here*/
+function miles(km){
+    return km * .621371;
   }
-
+console.log(miles(2))
 
 
 //Task 5b - Feet to CM
@@ -161,8 +185,8 @@ Using the feet function below do the following:
   3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-    /*add your code here*/
+function feet(cm){
+    return cm / 30.48;
   }
  
 
@@ -177,9 +201,12 @@ Using the annoyingSong function below do the following:
       "(number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-        /*add your code here*/
+function annoyingSong(num){
+  for (num === 100; num >= 1; num--) {
+    return `${num} bottles of soda on the wall`
   }
+}
+console.log(annoyingSong())
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -197,9 +224,21 @@ Using the grade function below do the following:
    below 60 = F
 */
   
-function grade(/*add your code here*/){
-    /*add your code here*/
+function grade(score){
+  if (score >= 90) {
+    return 'you got an A'
+  } else if (score >= 80) {
+    return 'you got a B'
+  } else if (score >= 70) {
+    return 'you got a C'
+  } else if (score >= 60) {
+    return 'you got a D'
+    } else {
+      return 'you got an F'
+    }
   }
+console.log(grade(73))
+
   
   
   
